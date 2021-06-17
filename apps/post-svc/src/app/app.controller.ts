@@ -1,14 +1,19 @@
-import { Controller, Logger } from '@nestjs/common';
-import {EventPattern, MessagePattern} from '@nestjs/microservices';
+import { Controller, Inject, Logger } from '@nestjs/common';
+import {ClientProxy, EventPattern, MessagePattern} from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
   private readonly logger = new Logger(AppController.name, true);
 
+  constructor(
+    @Inject('LOG_SERVICE') private logClient: ClientProxy,
+  ) {}
+
   @MessagePattern('posts.get')
   async getPosts(data: any): Promise<Array<any>> {
     this.logger.debug('get posts call');
 
+    this.logClient.emit('log.debug', 'this is new log');
     const posts = [
       {
         name: 'Post 1',
@@ -20,10 +25,10 @@ export class AppController {
       },
     ];
 
-    return posts;
-    // return new Promise(resolve => {
-    //   setTimeout(() => resolve(posts), 3000);
-    // })
+    // return posts;
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(posts), 3000);
+    });
   }
 
   @EventPattern('posts.create')
@@ -31,11 +36,6 @@ export class AppController {
     this.logger.error('creating post');
     this.logger.debug(data);
   }
-
-
-
-
-
 
   // @GrpcMethod('PostsService', 'FindOne')
   // findOne(

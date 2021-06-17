@@ -7,7 +7,8 @@ export class AppController {
 
   constructor(
     @Inject('LOG_SERVICE') private logClient: ClientProxy,
-    @Inject('POSTS_SERVICE') private postsClient: ClientProxy
+    @Inject('POSTS_SERVICE') private postsClient: ClientProxy,
+    @Inject('VIDEO_SERVICE') private videoClient: ClientProxy
   ) {}
 
   @Get('posts')
@@ -24,5 +25,10 @@ export class AppController {
     this.logClient.emit('log.debug', 'API: create post');
     this.postsClient.emit('posts.create', post);
     this.logger.debug(post);
+  }
+
+  @Get('video')
+  getVideo() {
+    return this.videoClient.send('video.get', {});
   }
 }

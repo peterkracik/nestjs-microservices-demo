@@ -24,12 +24,17 @@ export const transport = Transport.REDIS;
 
 export const clients: ClientsModuleOptions = [
   {
-    name: "LOG_SERVICE",
+    name: 'LOG_SERVICE',
     transport: transport,
     options: options,
   },
   {
-    name: "POSTS_SERVICE",
+    name: 'POSTS_SERVICE',
+    transport: transport,
+    options: options,
+  },
+  {
+    name: 'VIDEO_SERVICE',
     transport: transport,
     options: options,
   },
