@@ -1,0 +1,12 @@
+service PostsService {
+  rpc getPosts returns (ItemResponse) {
+  }
+}
+
+message ItemResponse {
+    repeated Item items = 1;
+}
+message Item {
+    string name = 1;
+    string text = 2;
+}

@@ -6,11 +6,11 @@ import { AppModule } from './app/app.module';
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
-    logSvcOptions
-    // {
-    //   transport: transport,
-    //   options: options,
-    // }
+    // logSvcOptions
+    {
+      transport: transport,
+      options: options,
+    }
   );
   app.listen(() => console.log('Log Microservice is listening'));
 }

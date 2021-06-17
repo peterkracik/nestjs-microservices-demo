@@ -27,6 +27,9 @@
     },
     "post-svc": {
       "tags": []
+    },
+    "video-svc": {
+      "tags": []
     }
   }
 }

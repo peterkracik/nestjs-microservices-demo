@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/apps/log-svc',
     '<rootDir>/apps/post-svc',
+    '<rootDir>/apps/video-svc',
   ],
 };

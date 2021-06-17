@@ -11,7 +11,7 @@ export class AppController {
 
     const posts = [{
       name: "Post 1",
-      test: "Lorem ipsum"
+      text: "Lorem ipsum"
     }, {
       name: "Post 2",
       text: "Another lorem ipsum"

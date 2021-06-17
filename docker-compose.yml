@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
+  nats:
+    container_name: nats
+    image: nats:alpine
+    ports:
+      - 4222:4222
