@@ -2,15 +2,8 @@ import {ClientsModuleOptions, MicroserviceOptions, Transport} from '@nestjs/micr
 import { join } from 'path';
 
 // redis
-const optionsTcp = {
-  port: 3001
-};
-
-// redis
 const optionsRedis = {
   url: "redis://localhost:6379",
-  retryAttempts: 5,
-  retryDelay: 5000
 };
 
 // nats
@@ -43,12 +36,3 @@ export const clients: ClientsModuleOptions = [
 ];
 
 
-// TCP
-export const postSvcOptions: MicroserviceOptions = {
-  transport: Transport.TCP,
-  options: { port: 3001 },
-};
-export const logSvcOptions: MicroserviceOptions = {
-  transport: Transport.TCP,
-  options: { port: 3002 },
-};

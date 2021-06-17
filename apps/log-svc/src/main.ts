@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { MicroserviceOptions } from '@nestjs/microservices';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { logSvcOptions, options, transport } from '@shared';
 import { AppModule } from './app/app.module';
 
@@ -8,8 +8,8 @@ async function bootstrap() {
     AppModule,
     // logSvcOptions
     {
-      transport: transport,
-      options: options,
+      transport: Transport.TCP,
+      options: { port: 3002 },
     }
   );
   app.listen(() => console.log('Log Microservice is listening'));

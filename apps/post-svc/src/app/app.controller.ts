@@ -9,13 +9,16 @@ export class AppController {
   async getPosts(data: any): Promise<Array<any>> {
     this.logger.debug('get posts call');
 
-    const posts = [{
-      name: "Post 1",
-      text: "Lorem ipsum"
-    }, {
-      name: "Post 2",
-      text: "Another lorem ipsum"
-    }];
+    const posts = [
+      {
+        name: 'Post 1',
+        text: 'Lorem ipsum',
+      },
+      {
+        name: 'Post 2',
+        text: 'Another lorem ipsum',
+      },
+    ];
 
     return posts;
     // return new Promise(resolve => {
@@ -28,4 +31,22 @@ export class AppController {
     this.logger.error('creating post');
     this.logger.debug(data);
   }
+
+
+
+
+
+
+  // @GrpcMethod('PostsService', 'FindOne')
+  // findOne(
+  //   data: Id,
+  //   metadata: Metadata,
+  //   call: ServerUnaryCall<any>
+  // ) {
+  //   const items = [
+  //     { id: 1, name: 'John' },
+  //     { id: 2, name: 'Doe' },
+  //   ];
+  //   return items.find(({ id }) => id === data.id);
+  // }
 }
