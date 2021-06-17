@@ -17,10 +17,10 @@ export class AppController {
       text: "Another lorem ipsum"
     }];
 
-    return posts;
-    //return new Promise(resolve => {
-      //setTimeout(() => resolve(posts), 3000);
-    //})
+    //return posts;
+    return new Promise(resolve => {
+      setTimeout(() => resolve(posts), 3000);
+    })
   }
 
   @EventPattern('posts.create')
