@@ -21,6 +21,12 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "log-svc": {
+      "tags": []
+    },
+    "post-svc": {
+      "tags": []
     }
   }
 }
