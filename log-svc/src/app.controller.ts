@@ -5,9 +5,9 @@ import {EventPattern} from '@nestjs/microservices';
 export class AppController {
   private readonly logger = new Logger(AppController.name, true);
 
-  @EventPattern('log.*')
-  log(data: any)  {
+  @EventPattern('log.debug')
+  log(message: string)  {
     this.logger.debug('Log from microservice');
-    this.logger.error(data);
+    this.logger.error(message);
   }
 }

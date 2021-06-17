@@ -8,13 +8,19 @@ export class AppController {
   @MessagePattern('posts.get')
   async getPosts(data: any): Promise<Array<any>> {
     this.logger.debug('get posts call');
-    return [{
+
+    const posts = [{
       name: "Post 1",
       test: "Lorem ipsum"
     }, {
       name: "Post 2",
       text: "Another lorem ipsum"
     }];
+
+    return posts;
+    //return new Promise(resolve => {
+      //setTimeout(() => resolve(posts), 3000);
+    //})
   }
 
   @EventPattern('posts.create')
